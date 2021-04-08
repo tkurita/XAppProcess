@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<title>XAppProcess Reference</title>
+		<meta name="AppleTitle" content="XAppProcess Reference">
+</meta>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<link href="assets/default.css" type="text/css" rel="stylesheet" media="all" />
+        <link href="assets/applescript.css" type="text/css" rel="stylesheet" media="all" />
+		<meta name="keywords" content="XAppProcess, AppleScript" />
+		<script type="text/javascript" src="assets-helpbook/run_helpscript.js"></script>
+		<script type="text/javascript" src="assets/navibar-jump.js"></script>
+        <link id="helpviewer-handler-helper" href="assets-helpbook/helpviewer-handler-helper.scpt" />
+        <script type="text/javascript" src="assets-helpbook/helpviewer-handler-enable.js"></script>
+        <link href="./" id="HelpBookRoot" />
+	</head>
+
+	<body>
+		<div id="navi-bar">
+			<div class="edit-script-link">
+				<a onclick="return runHelpScriptWithBundleRoot(this)" href="assets-helpbook/editScript.scpt">Edit Script</a>
+			</div>
+			<div class="left-contents">
+			<div class="to-root">
+				<!-- InstanceBeginEditable name="to-root" --><!-- InstanceEndEditable -->
+			</div>
+			<select onchange="navibarJump(this)">
+<option value="">
+§
+</option>
+<option value="#Examples">
+Examples
+</option>
+<option value="#Class_Methods">
+Class Methods
+</option>
+<option value="#activate_app">
+- activate_app
+</option>
+<option value="#Constructor_Methods">
+Constructor Methods
+</option>
+<option value="#make_with">
+- make_with
+</option>
+<option value="#make_with_frontmost">
+- make_with_frontmost
+</option>
+<option value="#Hiding_or_Unhiding_Applications">
+Hiding or Unhiding Applications
+</option>
+<option value="#hide">
+- hide
+</option>
+<option value="#unhide">
+- unhide
+</option>
+<option value="#is_hidden">
+- is_hidden
+</option>
+<option value="#Activating_Applications">
+Activating Applications
+</option>
+<option value="#activate_with">
+- activate_with
+</option>
+<option value="#activate">
+- activate
+</option>
+<option value="#is_active">
+- is_active
+</option>
+<option value="#Post_Key_Events_to_Applications">
+Post Key Events to Applications
+</option>
+<option value="#post_keyevent">
+- post_keyevent
+</option>
+<option value="#Obtain_Information_of_the_Application_Process">
+Obtain Information of the Application Process
+</option>
+<option value="#identifier">
+- identifier
+</option>
+<option value="#pid">
+- pid
+</option>
+</select>
+			</div>
+		</div>
+		<!-- InstanceBeginEditable name="prev-next-item" --><!-- InstanceEndEditable -->
+		<div id="contents">
+		<h1>XAppProcess Reference</h1>
+<ul>
+<li>Version : 1.0</li>
+<li>Author : Kurita Tetsuro <a href="mailto:scriptfactory@mac.com">scriptfactory@mac.com</a></li>
+<li>Requirements : OS X 10.10 or later</li>
+<li><a href="http://www.script-factory.net/XModules/XAppProcess/en/index.html">Home page</a> || <a href="http://www.script-factory.net/XModules/XAppProcess/changelog.html">ChangeLog</a> || <a href="https://github.com/tkurita/XAppProcess.scptd">Repository</a> </li>
+</ul>
+<p>XAppProcess allows you to send key events to the application process specified with a bundle identifier.“keystroke” and “key code” commands of “System Events” can send key events only to the frontmost application process. But XAppProcess can send key events to any background processes.Also following oprerations to application processes are provided:activate an application process with detail options e.g. only one window is bring to the fronthide an application process without using “System Events”</p>
+<h2 id="Examples">Examples</h2>
+<div class="sourceCode">
+<div class="scriptButton">
+    <input type="button" value="Open this script" onclick="document.location = this.src" src="applescript://com.apple.scripteditor?action=new&amp;script=use%20XAppProcess%20:%20script%20%22XAppProcess%22%0D%0Dset%20app_id%20to%20%22com.apple.TextEdit%22%0D%0Dtell%20XAppProcess%27s%20make_with(%7Bid:app_id,%20allow_launching:true%7D)%0D%09post_keyevent(%22N%22,%20%7B%22command%22%7D)%0D%09activate_with(%7Ball_windows:false%7D)%0D%09delay%201%0D%09log%20hide()%0D%09log%20identifier()%20--%20%22com.apple.TextEdit%22%0D%09log%20pid()%0D%09delay%200.1%0D%09log%20is_active()%20--%20true%0D%09log%20is_hidden()%20--false%0Dend%20tell%0D%0Dreturn%20missing%20value" />
+</div><div>
+<span class="langKeyword">use</span> <span class="userDefine">XAppProcess</span><span class="normal"> : </span><span class="className">script</span><span class="normal"> &quot;XAppProcess&quot;</span>
+</div>
+<br />
+<div>
+<span class="langKeyword">set</span> <span class="userDefine">app_id</span> <span class="langKeyword">to</span><span class="normal"> &quot;com.apple.TextEdit&quot;</span>
+</div>
+<br />
+<div>
+<span class="langKeyword">tell</span> <span class="userDefine">XAppProcess's</span> <span class="userDefine">make_with</span><span class="normal">({</span><span class="propertyName">id</span><span class="normal">:</span><span class="userDefine">app_id</span><span class="normal">, </span><span class="userDefine">allow_launching</span><span class="normal">:</span><span class="enumeratedValues">true</span><span class="normal">})</span>
+</div>
+<div style="text-indent:4ex;">
+<span class="userDefine">post_keyevent</span><span class="normal">(&quot;N&quot;, {&quot;command&quot;})</span>
+</div>
+<div style="text-indent:4ex;">
+<span class="userDefine">activate_with</span><span class="normal">({</span><span class="userDefine">all_windows</span><span class="normal">:</span><span class="enumeratedValues">false</span><span class="normal">})</span>
+</div>
+<div style="text-indent:4ex;">
+<span class="commandName">delay</span><span class="normal"> 1</span>
+</div>
+<div style="text-indent:4ex;">
+<span class="commandName">log</span> <span class="userDefine">hide</span><span class="normal">()</span>
+</div>
+<div style="text-indent:4ex;">
+<span class="commandName">log</span> <span class="userDefine">identifier</span><span class="normal">() </span><span class="comment">-- &quot;com.apple.TextEdit&quot;</span>
+</div>
+<div style="text-indent:4ex;">
+<span class="commandName">log</span> <span class="userDefine">pid</span><span class="normal">()</span>
+</div>
+<div style="text-indent:4ex;">
+<span class="commandName">delay</span><span class="normal"> 0.1</span>
+</div>
+<div style="text-indent:4ex;">
+<span class="commandName">log</span> <span class="userDefine">is_active</span><span class="normal">() </span><span class="comment">-- true</span>
+</div>
+<div style="text-indent:4ex;">
+<span class="commandName">log</span> <span class="userDefine">is_hidden</span><span class="normal">() </span><span class="comment">--false</span>
+</div>
+<div>
+<span class="langKeyword">end</span> <span class="langKeyword">tell</span>
+</div>
+<br />
+<div>
+<span class="langKeyword">return</span> <span class="className">missing value</span>
+</div>
+</div>
+<h2 id="Class_Methods">Class Methods</h2>
+<h3 id="activate_app"><a href="pages/activate_app.html">activate_app</a></h3>
+<p>Activate specified application process with detail options</p>
+<h2 id="Constructor_Methods">Constructor Methods</h2>
+<h3 id="make_with"><a href="pages/make_with.html">make_with</a></h3>
+<p>Return a new XAppProcess instance for an application process specified with a bundle identifier.</p>
+<h3 id="make_with_frontmost"><a href="pages/make_with_frontmost.html">make_with_frontmost</a></h3>
+<p>Return a new XAppProcess instance for the frontmost application.</p>
+<h2 id="Hiding_or_Unhiding_Applications">Hiding or Unhiding Applications</h2>
+<h3 id="hide"><a href="pages/hide.html">hide</a></h3>
+<p>Attempts to hide the application.</p>
+<h3 id="unhide"><a href="pages/unhide.html">unhide</a></h3>
+<p>Attempts to unhide the application.</p>
+<h3 id="is_hidden"><a href="pages/is_hidden.html">is_hidden</a></h3>
+<p>Indicates whether the application is currently hidden.</p>
+<h2 id="Activating_Applications">Activating Applications</h2>
+<h3 id="activate_with"><a href="pages/activate_with.html">activate_with</a></h3>
+<p>Activate the application process with detail options</p>
+<h3 id="activate"><a href="pages/activate.html">activate</a></h3>
+<p>Indicates whether the application is currently hidden.</p>
+<h3 id="is_active"><a href="pages/is_active.html">is_active</a></h3>
+<p>Indicates whether the application is currently frontmost.</p>
+<h2 id="Post_Key_Events_to_Applications">Post Key Events to Applications</h2>
+<h3 id="post_keyevent"><a href="pages/post_keyevent.html">post_keyevent</a></h3>
+<p>Post a key event to the application</p>
+<h2 id="Obtain_Information_of_the_Application_Process">Obtain Information of the Application Process</h2>
+<h3 id="identifier"><a href="pages/identifier.html">identifier</a></h3>
+<p>Obtain an bundle identifier of the application process</p>
+<h3 id="pid"><a href="pages/pid.html">pid</a></h3>
+<p>Obtain a process identifier of the applicatin process</p>
+		</div>
+		<!-- InstanceBeginEditable name="prev-next-item" --><!-- InstanceEndEditable -->
+	</body>
+
+</html>
