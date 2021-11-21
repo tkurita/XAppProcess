@@ -13,9 +13,9 @@
 	<key>CFBundleName</key>
 	<string>XAppProcess</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.0.1</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>2</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright 2021, Kurita Tetsuro</string>
 	<key>WindowState</key>
@@ -33,7 +33,7 @@
 		<key>positionOfDivider</key>
 		<real>619</real>
 		<key>savedFrame</key>
-		<string>430 120 806 757 0 0 1440 877 </string>
+		<string>500 120 806 757 0 0 1440 877 </string>
 		<key>selectedTab</key>
 		<string>result</string>
 	</dict>
