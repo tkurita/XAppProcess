@@ -13,7 +13,7 @@
 	<key>CFBundleName</key>
 	<string>XAppProcess</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.1</string>
+	<string>1.0.1b</string>
 	<key>CFBundleVersion</key>
 	<string>2</string>
 	<key>NSHumanReadableCopyright</key>
@@ -23,7 +23,7 @@
 		<key>bundleDividerCollapsed</key>
 		<false/>
 		<key>bundlePositionOfDivider</key>
-		<real>557.5</real>
+		<real>542.5</real>
 		<key>dividerCollapsed</key>
 		<false/>
 		<key>eventLogLevel</key>
@@ -31,9 +31,9 @@
 		<key>name</key>
 		<string>ScriptWindowState</string>
 		<key>positionOfDivider</key>
-		<real>619</real>
+		<real>613</real>
 		<key>savedFrame</key>
-		<string>500 120 806 757 0 0 1440 877 </string>
+		<string>500 124 806 751 0 0 1440 875 </string>
 		<key>selectedTab</key>
 		<string>result</string>
 	</dict>
